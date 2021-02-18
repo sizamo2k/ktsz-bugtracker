@@ -6,7 +6,6 @@ const app = express();
 const port = 5000;
 
 
-
 app.listen(port, function() {
     console.log("Server is running on Port: " + port);
   });
@@ -23,3 +22,11 @@ mongoose.connect(mongoUri, {
     console.log(Error, err.message);
 });
 
+// Get routes
+const ticketsRouter = require('./routes/tickets');
+const usersRouter = require('./routes/users');
+const projectsRouter = require('./routes/projects');
+
+app.use('/tickets', ticketsRouter);
+app.use('/users', usersRouter);
+app.use('/projects', projectsRouter);
