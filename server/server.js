@@ -30,3 +30,24 @@ const projectsRouter = require('./routes/projects');
 app.use('/tickets', ticketsRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
+
+// auth0 login app
+const { auth } = require('express-openid-connect');
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTHORIZE,
+  baseURL: 'http://localhost:5000',
+  clientID: 'eZ1Mw59npUYHQC4vtCjysuqLDl3mJjyJ',
+  issuerBaseURL: 'https://dev-katie.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
