@@ -9,5 +9,5 @@ const projectSchema = new schema({
     timestamps: true
 });
 
-const project = mongoose.model('project', ticketSchema);
+const project = mongoose.model('project', projectSchema);
 module.exports = project;

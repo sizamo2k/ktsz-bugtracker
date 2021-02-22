@@ -20,7 +20,7 @@ router.route('/create').post((req, res) => {
 });
 
 // read user
-router.route('/').get((req, req) => {
+router.route('/').get((req, res) => {
   user.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Unable to access user profile. Error: ' + err));
