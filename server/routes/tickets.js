@@ -1,6 +1,6 @@
 // ticket model
 const router = require('express').Router();
-const ticket = require('../model/tickets.model');
+const ticket = require('../models/tickets.model');
 
 // create ticket
 router.route('/create').post((req, res) => {
