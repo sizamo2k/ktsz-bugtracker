@@ -31,6 +31,10 @@ app.use('/tickets', ticketsRouter);
 app.use('/users', usersRouter);
 app.use('/projects', projectsRouter);
 
+app.get('/', (req, res) => {
+	res.send('welcome to ktsz bugtracker')
+});
+
 app.listen(port, () => {
 	console.log(`Server is running on port: ${port}`);
 });
