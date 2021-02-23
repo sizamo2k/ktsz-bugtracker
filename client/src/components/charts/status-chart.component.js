@@ -6,7 +6,7 @@ const labels = ['Open', 'In Progress', 'Resolved'];
 const backgroundColor = ['gold', 'cornflowerblue', 'darkslategray'];
 const options = {
 	maintainAspectRatio: false,
-	responsive: false,
+	responsive: true,
 }
 
 export default class StatusChart extends Component {
@@ -64,8 +64,8 @@ export default class StatusChart extends Component {
 				<Doughnut 
 					data={this.state.data}
 					options={options}
-					height={300}
-					width={500} />
+					height={250}
+					width={300} />
 			</div>
 		);
 	}

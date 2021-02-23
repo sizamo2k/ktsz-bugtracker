@@ -1,36 +1,38 @@
-// user model
 const router = require('express').Router();
-const user = require('../models/users.model');
 
-// create user
+// Project Model
+const User = require('../models/user.model');
+
+// CREATE
 router.route('/create').post((req, res) => {
     const name = req.body.name;
     const email = req.body.email;
     const role = req.body.role;
 
-    const newUser = new user({
-        name,
-        email,
-        role
+    const newUser = new User({
+    	name,
+    	email,
+    	role,
     });
 
     newUser.save()
-      .then(() => res.json('User profile created.'))
-      .catch(err => res.status(400).json('Unable to create user profile. Error: ' + err));
+        .then(() => res.json('User successfully created!'))
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// read user
+// READ
 router.route('/').get((req, res) => {
-  user.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Unable to access user profile. Error: ' + err));
+    User.find()
+        .then(users => res.json(users))
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// delete user
-router.route('/:id').delete((req, res) => {
-  user.findByIdAndDelete(req.params.id)
-    .then(ticket => res.join('User deleted.'))
-    .catch(err => res.status(400).json('Unable to delete user profile. Error : ' + err));
+// DELETE
+router.route('/:id').delete((req,res) => {
+User.findByIdAndDelete(req.params.id)
+    .then(ticket => res.json('User deleted.'))
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;
+

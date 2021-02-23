@@ -1,30 +1,34 @@
-// project module
 const router = require('express').Router();
-const project = require('../models/projects.model')
 
-// create project
-router.route('/').post((req, res) => {
-  const projectName = req.body.name;
-  const newProject = new project({
-    projectName,
-  })
-  newProject.save()
-    .then(() => res.json('Project ' + projectName + ' now created.'))
-    .catch(err => res.status(400).json('Unable to create project. Error: ' + err))
+// Project Model
+const Project = require('../models/project.model');
+
+// CREATE
+router.route('/create').post((req, res) => {
+    const name = req.body.name;
+
+    const newProject = new Project({
+    	name,
+    });
+
+    newProject.save()
+        .then(() => res.json('Project successfully created!'))
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// read project
+// READ
 router.route('/').get((req, res) => {
-  project.find()
-    .then(projects => res.json(projects))
-    .catch(err => res.status(400).json('Unable to load project. Error: ' + err));
+    Project.find()
+        .then(projects => res.json(projects))
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
-// delete project
-router.route('/:id').delete((req, res) => {
-  project.findByIdAndDelete(req.params.id)
+// DELETE
+router.route('/:id').delete((req,res) => {
+Project.findByIdAndDelete(req.params.id)
     .then(ticket => res.json('Project deleted.'))
-    .catch(err => res.status(400).json('Unable to delete project. Error: ' + err));
+    .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;
+

@@ -8,7 +8,7 @@ const backgroundColor = ['lightgreen', 'moccasin', 'crimson'];
 const options = {
 	legend: {display: false},
 	maintainAspectRatio: false,
-	responsive: false,
+	responsive: true,
 	scales:{
 		yAxes: [{
 			"ticks": {
@@ -76,8 +76,8 @@ export default class PriorityChart extends Component {
 				<Bar 
 					data={this.state.data}
 					options={options}
-					height={350}
-					width={500} />
+					height={250}
+					width={300} />
 			</div>
 		);
 	}

@@ -6,7 +6,7 @@ const backgroundColor = ['aquamarine', 'burlywood', 'firebrick', 'gray'];
 const labels = ['Bug/Error', 'Feature Request', 'Security', 'Other'];
 const options = {
 	maintainAspectRatio: false,
-	responsive: false,
+	responsive: true,
 }
 
 export default class TypeChart extends Component {
@@ -70,8 +70,8 @@ export default class TypeChart extends Component {
 				<Doughnut 
 					data={this.state.data}
 					options={options}
-					height={300}
-					width={500} />
+					height={250}
+					width={300} />
 			</div>
 		);
 	}
