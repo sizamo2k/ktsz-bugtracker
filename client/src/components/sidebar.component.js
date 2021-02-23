@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.jpg';
 
 export default class Sidebar extends Component {
 	render() {
 		return(
-			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+			<nav class="col-md-2 d-none d-md-block sidebar">
 	  			<center><img src={logo} className="navbar-brand" width="120" alt="Tech support" /></center>
 	    		<ul class="nav flex-column">
 	    			<li className="nav-item">
