@@ -85,10 +85,10 @@ export default class MarkButton extends React.Component {
 	render() {
 		return(
             this.state.status !== 'Resolved' ? 
-            <a href="#" onClick={this.handleClick} 
-            className="badge badge-success">Mark as Resolved</a> :
-            <a href="#" onClick={this.handleClick}
-            className="badge badge-secondary">Mark as Open</a>          
+            <div><a href="#" onClick={this.handleClick} 
+            className="badge badge-primary">Open</a></div>:
+            <div><a href="#" onClick={this.handleClick}
+            className="badge badge-secondary">Open</a></div>          
 		);
 	}
 }
