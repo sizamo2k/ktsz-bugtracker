@@ -35,7 +35,7 @@ router.route('/id').get((req, res) => {
 });
 
 // update ticket
-router.route('/update/:id').post((req,res) => {
+router.route('/update/:id').put((req,res) => {
   ticket.findById(req.params.id)
     .then(ticket => {
       ticket.title = req.body.title;

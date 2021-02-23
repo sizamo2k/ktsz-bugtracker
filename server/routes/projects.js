@@ -2,8 +2,9 @@
 const router = require('express').Router();
 const project = require('../models/projects.model')
 
+
 // create project
-router.route('/').post((req, res) => {
+router.route('/create').post((req, res) => {
   const projectName = req.body.name;
   const newProject = new project({
     projectName,

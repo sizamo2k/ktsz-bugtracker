@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose")
 require('dotenv').config()
-
 const app = express();
 const port = 5000;
 
@@ -23,13 +22,14 @@ mongoose.connect(mongoUri, {
 });
 
 // Get routes
+const projectsRouter = require('./routes/projects');
 const ticketsRouter = require('./routes/tickets');
 const usersRouter = require('./routes/users');
-const projectsRouter = require('./routes/projects');
 
+app.use('/projects', projectsRouter);
 app.use('/tickets', ticketsRouter);
 app.use('/users', usersRouter);
-app.use('/projects', projectsRouter);
+
 
 // auth0 login app
 const { auth } = require('express-openid-connect');
