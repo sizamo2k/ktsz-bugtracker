@@ -57,6 +57,8 @@ export default class PriorityChart extends Component {
 	                		case 'High':
 	                			this.high++;
 	                			break;
+							default:
+								break;
 	                	}
                 	}
 

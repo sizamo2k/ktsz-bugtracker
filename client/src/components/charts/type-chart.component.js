@@ -51,6 +51,8 @@ export default class TypeChart extends Component {
 	                		case 'Other':
 	                			this.other++;
 	                			break;
+							default:
+								break;
 	                	}
                 	}
 

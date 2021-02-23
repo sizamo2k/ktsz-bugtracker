@@ -46,6 +46,8 @@ export default class StatusChart extends Component {
                 		case 'Resolved':
                 			this.resolved++;
                 			break;
+						default:
+							break;
                 	}
 
                 	this.setState({ data: {
